@@ -1,0 +1,326 @@
+%% adapated from https://www.overleaf.com/latex/templates/resume-slash-cv/nvscdkzvnscx
+%% by ej@saha.la
+%%
+
+\documentclass[11pt]{article}
+
+% ================ PACKAGES ====================
+
+\usepackage[reset, letterpaper, margin=6mm, top=7mm, right=4mm]{geometry}
+% text alignment
+\usepackage{ragged2e}
+% loremipsum
+\usepackage{lipsum}
+% text color
+\usepackage{color}
+\usepackage{xcolor}
+% underline
+\usepackage{ulem}
+\usepackage{contour}
+% multiple columns
+\usepackage{paracol}
+% custom fonts
+\usepackage{fontspec}
+% paper bg
+\usepackage{eso-pic}
+% icons
+\usepackage{fontawesome5}
+% hyperlinks
+% \usepackage{hyperref}
+% better itemize
+\usepackage{enumitem}
+% change date format
+\usepackage[yyyymmdd]{datetime}
+
+% ================ SETTINGS ====================
+
+\setlist[itemize]{noitemsep, topsep=-2pt, leftmargin=2ex}
+
+\setromanfont{Ubuntu}
+\setsansfont{Ubuntu}
+\renewcommand{\familydefault}{\rmdefault}
+
+% no page numbers and the sorts
+\thispagestyle{empty}
+% no indentation at beginning of paragraph
+\parindent=0pt
+% for underline
+\renewcommand{\ULdepth}{3pt}
+\renewcommand{\ULthickness}{0.5pt}
+\contourlength{2.0pt}
+
+% for links
+%\hypersetup{
+%    colorlinks=false,
+%    pdfborder = {0 0 0},
+%}
+
+% no hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen{}
+\hyphenpenalty=10000
+\hbadness=10000
+
+% ================ MACROS ======================
+
+\newfontfamily\titlethin{Ubuntu Thin}
+\newfontfamily\titlethick{Ubuntu Medium}
+\newfontfamily\titlebold{Ubuntu Bold}
+\newfontfamily\normaltext{Ubuntu}
+
+\newcommand{\resumetitle}[3]{
+    \AddToShipoutPictureBG{
+        \AtPageUpperLeft{
+        \raisebox{-0.09\paperheight}{
+            \color{black!85}\rule{2\paperwidth}{\paperheight}}
+        }}
+    \begin{Center}
+        \begingroup
+        \titlethin{}
+        \color{black!10}\Huge{#1}
+        \titlethick{}
+        \color{black!5}\Huge{#2} \\
+        \vspace{2mm}
+        \textrm{\color{black!15}\Large{#3}}
+        \endgroup
+    \end{Center}
+    \vspace{7mm}
+}
+
+\newcommand{\betteruline}[1]{
+    \uline{#1}
+}
+
+\newcommand{\sectiontitle}[1]{
+    \begingroup
+        \titlebold{}
+        \betteruline{\Large\uppercase{#1}  }
+        \vspace{1.7mm}
+    \endgroup
+}
+
+\newcommand{\sectioncontent}[1]{
+    \begingroup
+        \begin{FlushLeft}
+        \vspace{-3mm}
+        \sffamily\small#1
+        \end{FlushLeft}
+    \endgroup
+    \vspace{2mm}
+}
+
+\newcommand{\job}[3]{
+    \begingroup
+        \textbf{\small#1} \hfill \small#2 \--- \color{black!70}\small{#3}
+    \endgroup
+}
+
+\newcommand{\spacevv}{
+    \vspace{2mm}
+}
+
+\newcommand{\certification}[2]{
+    \textcolor{black!70}{\small#1} \hfill \small#2 \\
+    % \vspace{1.5mm}
+}
+
+
+
+%%%%
+% cv content
+%%%%
+
+\begin{document}
+    \resumetitle{}{E.J.\ Sahala (they/them)} {
+        cv@saha.la |
+        +1.408.218.2006
+    }
+
+    \columnratio{0.31}
+    \setlength{\columnsep}{7mm}
+    \begin{paracol}{2}
+
+    \sectiontitle{about me}
+    \sectioncontent{
+        Self-taught proactive learner with over 20 years of professional experience designing, building, and automating
+        large scale \& service provider (network) infrastructure.
+    }
+
+    \sectiontitle{education}
+    \sectioncontent{
+        \textbf{A.A.\ Physics} \\
+        Miami-Dade\ College\\
+    }
+
+    \sectiontitle{links}
+    \sectioncontent{
+        \faIcon{github}\hspace{2mm} {https://github.com/jaeejs} \\
+        % \href{https://github.com/jaeejs}{https://github.com/jaeejs} \\
+        \faIcon{linkedin-in}\hspace{2.1mm} {https://linkedin/in/jaeejs} \\
+        % \href{https://linkedin.com/in/jaeejs}{https://linkedin/in/jaeejs} \\
+        \faIcon{link}\hspace{1.8mm} {https://jaeejs.me}
+        % \href{https://jaeejs.me}{https://jaeejs.me}
+    }
+
+    \sectiontitle{technical skills}
+    \sectioncontent{
+        \textbf{Networking} \\
+        \begin{itemize}
+            \item BGP/MP-BGP, OSPF, IS-IS, PIM
+            \item MPLS, LDP, RSVP-TE, SR-MPLS
+            \item L2VPN, L3VPN, EVPN, VxLAN
+            \item TCP/IP, IPv4 \& IPv6, QoS
+            % \item CLOS/spine-leaf topologies, Ethernet, QoS, SDN, VPC, Segment Routing
+            % \item SDN, VPC, Segment Routing
+            \item Juniper, Cisco, Arista, Cumulus
+            \item PaloAlto, A10, F5
+        \end{itemize}
+        \spacevv{}
+
+        \textbf{Systems} \\
+        \begin{itemize}
+            \item Debian, Ubuntu, RHEL, CentOS, FreeBSD
+            \item Apache, Nginx, Bind, Infoblox
+            \item LibreNMS, Sensu, Zabbix, Nagios
+        \end{itemize}
+        \spacevv{}
+
+        \textbf{Containers \& Virtualization} \\
+        \begin{itemize}
+            \item Docker, Kubernetes, VMWare, FreeBSD Jails
+        \end{itemize}
+
+        \textbf{Development \& Automation} \\
+        \begin{itemize}
+          \item Go, Python, Bash
+          \item FastAPI, HTML, YAML, JSON
+          \item Nornir, Ansible, NAPALM
+          \item Github Actions
+        \end{itemize}
+        \spacevv{}
+
+        \textbf{Cloud} \\
+        \begin{itemize}
+            \item AWS, GCP, Linode
+        \end{itemize}
+        \spacevv{}
+
+        \textbf{Prior experience} \\
+        \begin{itemize}
+            \item Terraform, Cfengine, Puppet, Jenkins
+            \item C, csh, ksh, Perl, Ruby
+            \item Django, Flask
+            \item Azure, Oracle OCI, IBM Cloud
+        \end{itemize}
+    }
+
+
+    %%%%
+    % right column content
+    %%%%
+
+    \switchcolumn{}
+
+    \sectiontitle{experience}
+    \sectioncontent{
+
+      \job{Adobe}{Network Reliability Engineer/Sr. Cloud Network Engineer}{2021\--Present}
+      \begin{itemize}
+        \item Engineer solutions for network automation, implementation, support, and operations
+      \end{itemize}
+      \spacevv{}
+
+      \job{Box}{Senior Network Engineer}{2019\--2021}
+      \begin{itemize}
+        \item Design, build, automation, and operation of a global hyperscale network; reduced tech debt, increased
+            capacity, and reduced complexity
+        % \item Designed and rebuilt network edge:
+        \item Rebuilt and maintained automation for network configuration and operations
+      \end{itemize}
+
+    \job{Here Technologies}{Principal Network Engineer}{2018\--2019}
+    \begin{itemize}
+        \item Architecture, design, and automation of the HERE global wide area and datacenter networks; reduced
+            deployment time from hours to minutes
+        % \item Created and maintained standards and automation, reduced deployment time from hours to minutes
+        \item Designed new edge network: defined cloud-provider interconnection and deployment templates for compute,
+            virtualization, storage, and monitoring and management technologies
+    \end{itemize}
+    \spacevv{}
+
+    \job{Gaikai/Sony}{Senior Network Engineer}{2017\--2018}
+    \begin{itemize}
+        % \item Planning, design, build, and operation of
+        \item Defined architectural requirements, acceptance criteria, and led hardware, software, and vendor
+            evaluations for PlayStation Now's low latency, high availability, global gaming network.
+        % \item Designed/implemented process improvements reducing deployment times by 10\%
+        \item Routing redesign reduced inter-regional latency by up to 5ms
+    \end{itemize}
+    \spacevv{}
+
+    \job{Microsoft}{Senior Engineer \-- Network Strategy \& Planning}{2014\--2017}
+    \begin{itemize}
+        \item Defined, and developed strategic roadmaps, built stakeholder relationships and strategic
+            partnerships, influenced contract negotiations, and managed capacity with infrastructure operators globally
+        \item Created network performance troubleshooting program, led global cross-functional team through training,
+            tooling, and hand-over to Network Operations; reduced triage time from 5 days to 2 hours
+    \end{itemize}
+    \spacevv{}
+
+    \job{Juniper Networks}{Systems (Sales) Engineer}{2012\--2013}
+    \begin{itemize}
+        \item Developed consultative relationships with technical and executive decision makers, responded to RFI/RFPs,
+            created and delivered training presentations, product/service roadmaps, and conducted POCs
+        \item Key team contributor in transforming resistance into success to exceed quota, and deliver over
+            \$X0-million in sales revenue
+    \end{itemize}
+    \spacevv{}
+
+    \job{Infocrossing/Wipro}{Network Architect (Staff Engineer)}{2010\--2012} \\
+    % \begin{itemize}
+        % \item Definition and continuous development of the architecture, strategy, and planning for repeatable,
+            % virtualized network, security, and computing solutions for a managed services provider (MSP)
+        % \item reduced network costs (10\--30\%), increased capacity (1000\%), and improved reliability (<99.5\%->~99.99\%)
+    % \end{itemize}
+    % \spacevv{}
+    \job{Intelepeer}{Principal IP (Network) Engineer}{2009\--2010} \\
+    % \spacevv{}
+    \job{Yahoo!}{Tech Lead \-- Senior Network Engineer}{2007\--2009} \\
+    % \spacevv{}
+    \job{Alcatel-Lucent NZ}{Principal Engineer}{2006\--2007} \\
+    % \spacevv{}
+    \job{twtelecom}{Tech Lead \-- Senior IP Network Engineer}{2005\--2006} \\
+    % \spacevv{}
+    \job{Terremark}{Tech Lead \-- Senior Network Engineer}{2004\--2005} \\
+    % \spacevv{}
+    \job{Fusiontel}{Tech Lead \-- Senior Network Engineer}{2002\--2004} \\
+    % \spacevv{}
+    \job{USA.net}{Network Engineer}{2001\--2002} \\
+    % \spacevv{}
+    \job{Various}{NOC Technician}{1999\--2001} \\
+    % \spacevv{}
+    \job{United States Marine Corps Reserve}{Lance Corporal}{1998\--2002} \\
+    % \begin{itemize}
+        % \item Secret Clearance
+        % \item Meritorious promotions
+    % \end{itemize}
+    \spacevv{}
+
+    }
+
+    \sectiontitle{certifications \& affiliations}
+    \sectioncontent{
+        \certification{Member, NANOG}{2012-Present}
+        \certification{Member, Customer Advisory Board, DE-CIX}{2014\--2016}
+        \certification{Vice President, Colorado Chapter of the Internet Society (COISOC)}{2011\--2016}
+        \certification{Steering Committee Member, Rocky Mountain IPv6 Task Force (RMv6TF)}{2011\--2016}
+        \certification{Juniper Networks Certified Internet Specialist (JNCIS-ENT)}{2012\--2015}
+        \certification{Juniper Networks Certified Internet Specialist (JNCIS-M)}{2006\--2009}
+        \certification{Cisco Certified Network Professional (CCNP)}{2002\--2008}
+    }
+
+    \normaltext{} \hfill \tiny Last updated \today
+
+    \end{paracol}
+
+\end{document}
