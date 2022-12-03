@@ -10,7 +10,7 @@
 % text alignment
 \usepackage{ragged2e}
 % loremipsum
-\usepackage{lipsum}
+% \usepackage{lipsum}
 % text color
 \usepackage{color}
 \usepackage{xcolor}
@@ -36,11 +36,11 @@
 
 \setlist[itemize]{noitemsep, topsep=-2pt, leftmargin=2ex}
 
-\setromanfont{Ubuntu}
-\setsansfont{Ubuntu}
+\setromanfont{Ubuntu Light}
+\setsansfont{Ubuntu Light}
 \renewcommand{\familydefault}{\rmdefault}
 
-% no page numbers and the sorts
+% no page numbers
 \thispagestyle{empty}
 % no indentation at beginning of paragraph
 \parindent=0pt
@@ -63,10 +63,10 @@
 
 % ================ MACROS ======================
 
-\newfontfamily\titlethin{Ubuntu Thin}
+\newfontfamily\titlethin{Ubuntu Light}
 \newfontfamily\titlethick{Ubuntu Medium}
 \newfontfamily\titlebold{Ubuntu Bold}
-\newfontfamily\normaltext{Ubuntu}
+\newfontfamily\normaltext{Ubuntu Regular}
 
 \newcommand{\resumetitle}[3]{
     \AddToShipoutPictureBG{
@@ -111,7 +111,8 @@
 
 \newcommand{\job}[3]{
     \begingroup
-        \textbf{\small#1} \hfill \textbf{\small#2} \--- \color{black!70}\small{#3}
+        % \textbf{\small#1} \hfill \textbf{\small#2} \--- \color{black!70}\small{#3}
+        \titlethick{}\small#1 \hfill \small#2 \-- \color{black!70}\titlethin{\small{#3}}
     \endgroup
 }
 
@@ -120,7 +121,8 @@
 }
 
 \newcommand{\certification}[2]{
-    \textcolor{black!70}{\small#1} \hfill \small#2 \\
+    % \titlethin{}
+    \normaltext{}\color{black!70}{\small#1} \hfill \titlethin{}\small#2 \\
     % \vspace{1.5mm}
 }
 
@@ -131,7 +133,7 @@
 %%%%
 
 \begin{document}
-    \resumetitle{}{E.J.\ Sahala (they/them)} {
+    \resumetitle{}{e.j.\ sahala (they/them)} {
         cv@saha.la |
         +1.720.663.1873
     }
@@ -170,8 +172,7 @@
             \item MPLS, LDP, RSVP-TE, SR-MPLS
             \item L2VPN, L3VPN, EVPN, VxLAN
             \item TCP/IP, IPv4 \& IPv6, QoS
-            % \item CLOS/spine-leaf topologies, Ethernet, QoS, SDN, VPC, Segment Routing
-            % \item SDN, VPC, Segment Routing
+            % \item CLOS/spine-leaf topologies, Ethernet
             \item Juniper, Cisco, Arista, Cumulus
             \item PaloAlto, A10, F5
         \end{itemize}
@@ -179,21 +180,17 @@
 
         \textbf{Systems} \\
         \begin{itemize}
-            \item Debian, Ubuntu, RHEL, CentOS, FreeBSD
+            \item Debian, Ubuntu, RHEL, CentOS
             \item Apache, Nginx, Bind, Infoblox
             \item LibreNMS, Sensu, Zabbix, Nagios
+            \item Docker, Kubernetes, VMWare
         \end{itemize}
         \spacevv{}
 
-        \textbf{Containers \& Virtualization} \\
-        \begin{itemize}
-            \item Docker, Kubernetes, VMWare, FreeBSD Jails
-        \end{itemize}
-
-        \textbf{Development \& Automation} \\
+        \textbf{Development} \\
         \begin{itemize}
           \item Go, Python, Bash
-          \item FastAPI, HTML, YAML, JSON
+          \item FastAPI, YAML, JSON
           \item Nornir, Ansible, NAPALM
           \item Github Actions
         \end{itemize}
@@ -207,10 +204,13 @@
 
         \textbf{Prior experience} \\
         \begin{itemize}
-            \item Terraform, Cfengine, Puppet, Jenkins
+            \item Terraform, Cfengine, Puppet
+            \item Jenkins, Gerrit
             \item C, csh, ksh, Perl, Ruby
+            \item MySQL, PostgreSQL
             \item Django, Flask
             \item Azure, Oracle OCI, IBM Cloud
+            \item Solaris, *BSD, FreeBSD Jails
         \end{itemize}
     }
 
@@ -221,7 +221,7 @@
 
     \switchcolumn{}
 
-    \sectiontitle{experience}
+    \sectiontitle{professional experience}
     \sectioncontent{
 
       \job{Adobe}{Network Reliability Engineer/Sr. Cloud Network Engineer}{2021\--2022}
@@ -234,7 +234,6 @@
       \begin{itemize}
         \item Design, build, automation, and operation of a global hyperscale network; reduced tech debt, increased
             capacity, and reduced complexity
-        % \item Designed and rebuilt network edge:
         \item Rebuilt and maintained automation for network configuration and operations
       \end{itemize}
 
@@ -250,7 +249,6 @@
 
     \job{Gaikai/Sony}{Senior Network Engineer}{2017\--2018}
     \begin{itemize}
-        % \item Planning, design, build, and operation of
         \item Defined architectural requirements, acceptance criteria, and led hardware, software, and vendor
             evaluations for PlayStation Now's low latency, high availability, global gaming network.
         % \item Designed/implemented process improvements reducing deployment times by 10\%
@@ -284,21 +282,13 @@
     % \end{itemize}
     % \spacevv{}
     \job{Intelepeer}{Principal IP (Network) Engineer}{2009\--2010} \\
-    % \spacevv{}
     \job{Yahoo!}{Tech Lead \-- Senior Network Engineer}{2007\--2009} \\
-    % \spacevv{}
     \job{Alcatel-Lucent NZ}{Principal Engineer}{2006\--2007} \\
-    % \spacevv{}
     \job{twtelecom}{Tech Lead \-- Senior IP Network Engineer}{2005\--2006} \\
-    % \spacevv{}
     \job{Terremark}{Tech Lead \-- Senior Network Engineer}{2004\--2005} \\
-    % \spacevv{}
     \job{Fusiontel}{Tech Lead \-- Senior Network Engineer}{2002\--2004} \\
-    % \spacevv{}
     \job{USA.net}{Network Engineer}{2001\--2002} \\
-    % \spacevv{}
     \job{Various}{NOC Technician}{1999\--2001} \\
-    % \spacevv{}
     \job{United States Marine Corps Reserve}{Lance Corporal}{1998\--2002} \\
     % \begin{itemize}
         % \item Secret Clearance
